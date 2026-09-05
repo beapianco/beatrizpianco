@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PetCare: cadastro e gerenciamento simples dos seus melhores amigos.">
+    <title>PetCare | Cadastro de pets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="brand" href="#inicio" aria-label="PetCare - início">
+                <span class="brand-mark">🐾</span>
+                <span>
+                    <strong>PetCare</strong>
+                    <small>Cuidando dos nossos melhores amigos</small>
+                </span>
+            </a>
+            <nav class="main-nav" aria-label="Navegação principal">
+                <a href="#cadastro">Cadastrar pet</a>
+                <a href="#pets">Pets cadastrados</a>
+                <a class="docs-link" href="/api-docs/" target="_blank" rel="noreferrer">Swagger ↗</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="inicio">
+        <section class="hero container">
+            <div class="hero-copy">
+                <p class="eyebrow">UM LUGAR PARA CADA PATINHA</p>
+                <h1>Cadastre e gerencie seus pets de forma <em>simples.</em></h1>
+                <p class="hero-text">Organize as informações dos seus companheiros em um só lugar, com carinho e praticidade.</p>
+                <a class="primary-button" href="#cadastro">Cadastrar pet <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="hero-art" aria-label="Ilustração de um cachorro feliz" role="img">
+                <div class="sun-shape"></div>
+                <div class="sparkle sparkle-one">✦</div>
+                <div class="sparkle sparkle-two">✦</div>
+                <div class="pet-portrait">🐶</div>
+                <div class="hero-tag tag-one">fiel companheiro</div>
+                <div class="hero-tag tag-two">muito amor</div>
+            </div>
+        </section>
+
+        <section class="access-section">
+            <div class="container access-grid">
+                <div>
+                    <p class="eyebrow">ACESSO À API</p>
+                    <h2>Conecte sua conta para começar</h2>
+                    <p class="muted">As rotas de pets são protegidas. Cole aqui o token recebido em <code>POST /login</code>.</p>
+                </div>
+                <div class="token-box">
+                    <label for="token-input">Token Bearer</label>
+                    <div class="token-row">
+                        <input id="token-input" type="password" placeholder="Cole seu token aqui" autocomplete="off">
+                        <button id="save-token" class="secondary-button" type="button">Salvar token</button>
+                    </div>
+                    <p id="token-status" class="field-hint">Nenhum token salvo neste navegador.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cadastro" class="workspace container">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">FICHA DO PET</p>
+                    <h2 id="form-title">Novo cadastro</h2>
+                </div>
+                <span class="section-number">01</span>
+            </div>
+            <form id="pet-form" class="pet-form">
+                <div class="form-field">
+                    <label for="nome">Nome</label>
+                    <input id="nome" name="nome" required placeholder="Ex.: Pipoca">
+                </div>
+                <div class="form-field">
+                    <label for="especie">Espécie</label>
+                    <input id="especie" name="especie" required placeholder="Ex.: cachorro">
+                </div>
+                <div class="form-field age-field">
+                    <label for="idade">Idade</label>
+                    <input id="idade" name="idade" type="number" min="0" required placeholder="0">
+                </div>
+                <div class="form-field">
+                    <label for="raca">Raça</label>
+                    <input id="raca" name="raca" required placeholder="Ex.: vira-lata caramelo">
+                </div>
+                <div class="form-field">
+                    <label for="dono">Dono</label>
+                    <input id="dono" name="dono" required placeholder="Nome do responsável">
+                </div>
+                <div class="form-actions">
+                    <button id="submit-pet" class="primary-button" type="submit">Cadastrar <span aria-hidden="true">→</span></button>
+                    <button id="cancel-edit" class="text-button hidden" type="button">Cancelar edição</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="pets" class="pets-section">
+            <div class="container">
+                <div class="section-heading pets-heading">
+                    <div>
+                        <p class="eyebrow">SEU PEQUENO TIME</p>
+                        <h2>Pets cadastrados</h2>
+                    </div>
+                    <button id="refresh-pets" class="icon-button" type="button" title="Atualizar lista" aria-label="Atualizar lista">↻</button>
+                </div>
+                <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+                <div id="pets-list" class="pets-grid" aria-live="polite">
+                    <div class="empty-state">
+                        <span>🐾</span>
+                        <h3>Carregando seus companheiros...</h3>
+                        <p>Informe um token válido para buscar os pets.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-wrap">
+            <span>PetCare <strong>🐾</strong></span>
+            <span>Feito para cuidar do que importa.</span>
+        </div>
+    </footer>
+</body>
+</html>

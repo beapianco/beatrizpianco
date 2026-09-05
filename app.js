@@ -9,6 +9,7 @@ const swaggerDocument = require('./src/docs/swagger');
 const app = express();
 
 app.use(express.json());
+app.use(express.static('public'));
 app.use('/pets', petsRoutes);
 app.use('/usuarios', usuariosRoutes);
 app.use('/login', loginRoutes);
@@ -17,7 +18,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const PORT = 3000;
 
-app.get('/', (req, res) => {
+app.get('/api-status', (req, res) => {
     res.json({
         mensagem: 'API Cadastro de Pets funcionando!',
         versao: '1.0.0',
