@@ -1,0 +1,28 @@
+{
+  "name": "beatrizpianco",
+  "version": "1.0.0",
+  "description": "API colorida de cadastro de pets para as atividades AV1 e AV2 de Desenvolvimento de Websites",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beapianco/beatrizpianco.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/beapianco/beatrizpianco/issues"
+  },
+  "homepage": "https://github.com/beapianco/beatrizpianco#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.2.1",
+    "multer": "^2.3.0",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
